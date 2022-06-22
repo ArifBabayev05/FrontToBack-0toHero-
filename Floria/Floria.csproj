@@ -15,6 +15,7 @@
     <Folder Include="wwwroot\Areas\" />
     <Folder Include="wwwroot\Areas\Admin\" />
     <Folder Include="Views\Products\" />
+    <Folder Include="Areas\Admin\Views\Products\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +43,8 @@
     <None Remove="Areas\Admin\Views\Dashboard\" />
     <None Remove="Areas\Admin\Views\Shared\" />
     <None Remove="Views\Products\" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Areas\Admin\Views\Products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Areas\" />

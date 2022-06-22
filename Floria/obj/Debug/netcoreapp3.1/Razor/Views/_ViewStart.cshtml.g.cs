@@ -13,21 +13,21 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "/Users/babayev_/Desktop/FrontToBack-Relation 2/Floria/Views/_ViewImports.cshtml"
+#line 3 "/Users/babayev_/Desktop/FrontToBack-Relation 2/Floria/Views/_ViewImports.cshtml"
 using DAL.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/babayev_/Desktop/FrontToBack-Relation 2/Floria/Views/_ViewImports.cshtml"
+#line 4 "/Users/babayev_/Desktop/FrontToBack-Relation 2/Floria/Views/_ViewImports.cshtml"
 using Floria.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f400a24e4f1c1f8dbc87c0f761266a45e781e06b", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ea72b36982b37fd962922ece6e4bea7509e18ef2", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8195b7421d29eb7c6f6c940fd61854c0b6ea20cc", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
