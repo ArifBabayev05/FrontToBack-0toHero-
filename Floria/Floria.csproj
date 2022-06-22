@@ -6,6 +6,15 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\assets\" />
+    <Folder Include="Areas\" />
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Areas\Admin\Views\Dashboard\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="wwwroot\Areas\" />
+    <Folder Include="wwwroot\Areas\Admin\" />
+    <Folder Include="Views\Products\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,4 +33,17 @@
     <ProjectReference Include="..\DAL\DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Areas\" />
+    <None Remove="Areas\Admin\" />
+    <None Remove="Areas\Admin\Controllers\" />
+    <None Remove="Areas\Admin\Views\" />
+    <None Remove="Areas\Admin\Views\Dashboard\" />
+    <None Remove="Areas\Admin\Views\Shared\" />
+    <None Remove="Views\Products\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Areas\" />
+    <Content Remove="wwwroot\Areas\Admin\" />
+  </ItemGroup>
 </Project>
