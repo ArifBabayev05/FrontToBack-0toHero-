@@ -27,7 +27,7 @@ $(document).ready(function () {
 
     // SLIDER
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         $(".slider").owlCarousel(
             {
                 items: 1,
@@ -35,12 +35,11 @@ $(document).ready(function () {
                 autoplay: true
             }
         );
-      });
+    });
 
     // PRODUCT
 
-    $(document).on('click', '.categories', function(e)
-    {
+    $(document).on('click', '.categories', function (e) {
         e.preventDefault();
         $(this).next().next().slideToggle();
     })
@@ -49,32 +48,56 @@ $(document).ready(function () {
         e.preventDefault();
         let category = $(this).attr('data-id');
         let products = $('.product-item');
-        
+
         products.each(function () {
-            if(category == $(this).attr('data-id'))
-            {
+            if (category == $(this).attr('data-id')) {
                 $(this).parent().fadeIn();
             }
-            else
-            {
+            else {
                 $(this).parent().hide();
             }
         })
-        if(category == 'all')
-        {
+        if (category == 'all') {
             products.parent().fadeIn();
         }
     })
 
     let showMoreButton = document.getElementById("showMore");
+    let parentRow = document.getElementById("parentRow");
+    let currentPageCount = 1;
 
-    showMoreButton.addEventListener("click",async function () {
-        let resp = await fetch("/products/loadmore");
-        let data = await resp.json();
 
-        console.log(data)
-        //console.log("test")
+    //Işdəmir Burasııııııı
+
+
+    showMoreButton.addEventListener("click", async function () {
+        let pageCount = await getPageCount();
+        console.log(currentPageCount)
+
+
+        if (currentPageCount < pageCount) {
+            let resp = await fetch(`/products/loadmore?page=${currentPageCount}`);
+            let data = await resp.text();
+
+
+
+            parentRow.innerHTML += data;
+            currentPageCount++;
+        }
+
+
+        if(currentPageCount===pageCount){
+            showMoreButton.classList.add("d-none")  
+        }
+
+        
     });
+
+    async function getPageCount() {
+        let resp = await fetch("/products/getpagecount");
+        let data = Number(await resp.text);
+        return data;
+    }
 
     // ACCORDION 
             
