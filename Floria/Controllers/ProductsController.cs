@@ -23,12 +23,24 @@ namespace Floria.Controllers
         public async Task<IActionResult> Index()
         {
             var data = await _context.Products.Where(n => !n.IsDeleted)
+                                             .OrderByDescending(n=>n.CreatedDate)
                                              .Take(8)
-                                             .OrderBy(n=>n.CreatedDate)
                                              .Include(n => n.Image)
                                              .ToListAsync();
             return View(data);
         }
+
+        public async Task<IActionResult> LoadMore()
+        {
+            var data = await _context.Products.Where(n => !n.IsDeleted)
+                                             .OrderByDescending(n => n.CreatedDate)
+                                             .Skip(8)
+                                             .Take(8)
+                                             .Include(n => n.Image)
+                                             .ToListAsync();
+            return Json(data);
+        }
+
     }
 }
 

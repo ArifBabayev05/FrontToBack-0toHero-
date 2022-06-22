@@ -66,8 +66,18 @@ $(document).ready(function () {
         }
     })
 
-    // ACCORDION 
+    let showMoreButton = document.getElementById("showMore");
 
+    showMoreButton.addEventListener("click",async function () {
+        let resp = await fetch("/products/loadmore");
+        let data = await resp.json();
+
+        console.log(data)
+        //console.log("test")
+    });
+
+    // ACCORDION 
+            
     $(document).on('click', '.question', function()
     {   
        $(this).siblings('.question').children('i').removeClass('fa-minus').addClass('fa-plus');
