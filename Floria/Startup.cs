@@ -47,13 +47,24 @@ namespace Floria
             }
 
             app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
+                endpoints.MapControllerRoute
+                (
+                    name: "Admin",
+                    pattern: "{area:exists}/{controller=dashboard}/{action=Index}/{id?}"
+                 );
+
+                endpoints.MapControllerRoute
+                (
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                 );
+
+                
             });
         }
     }

@@ -41,6 +41,8 @@
                         <a href="" class="categories mr-2">Categories</a>
                         <i class="fas fa-caret-down"></i>
                         <ul class="category list-unstyled" style="display: none;">
+                            <li><a href="" data-id="all">All</a></li>
+
                             @{
                                 foreach (var category in Model.Categories)
                                 {
@@ -88,6 +90,11 @@
                     </div>
                 }
             }
+        </div>
+        <div class="row mt-5 justify-content-center">
+            <div class="col-lg-5 d-flex justify-content-center">
+                <a asp-controller="products" asp-action="index" class="btn btn-secondary">Show More...</a>
+            </div>
         </div>
     </div>
 </section>

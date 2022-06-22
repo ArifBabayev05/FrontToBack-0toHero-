@@ -20,6 +20,8 @@ namespace Floria.Controllers
         public async Task<IActionResult> Index()
         {
             List<Product> products = await _context.Products.Where(n => !n.IsDeleted)
+                .OrderByDescending(n=>n.CreatedDate)
+                .Take(8)
                 .Include(n => n.Category)
                 .Include(n => n.Image)
                 .ToListAsync();
