@@ -20,7 +20,7 @@ namespace Floria.Areas.Admin.Controllers
         {
             _context = context;
         }
-        // GET: /<controller>/
+
         public async Task<IActionResult> Index()
         {
             var data = await _context.Products.Where(n => !n.IsDeleted)
@@ -30,19 +30,37 @@ namespace Floria.Areas.Admin.Controllers
                                               .ToListAsync();
             return View(data);
         }
-        public IActionResult Create()
+        public async Task<IActionResult> Details(int? id)
         {
+            if(id is null)
+            {
+                throw new ArgumentNullException("Id");
+            }
+            var data = await _context.Products.Where(n => n.Id == id)
+                                              .Include(n => n.Image)
+                                              .Include(n => n.Category)
+                                              .FirstOrDefaultAsync();
+
+            if(data is null)
+            {
+                throw new NullReferenceException("Data Could Not Be Found!");
+            }
+            return View(data);
+        }
+
+
+
+        public async Task<IActionResult> Create()
+        {
+            var categories = await _context.Categories.Where(n => !n.IsDeleted).ToListAsync();
+            ViewData["categories"] = categories;
             return View();
         }
 
         [HttpPost]
-        //[Route("{controller}/{action}/{name}/{count}/{price}")]
         public async Task<IActionResult> Create( Product product)
         {
-
             product.CreatedDate = DateTime.Now;
-            product.ImageId = 10;
-            product.CategoryId = 3;
 
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
