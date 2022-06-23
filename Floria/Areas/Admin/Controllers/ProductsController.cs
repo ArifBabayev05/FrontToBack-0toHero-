@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DAL.Data;
+using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,11 +24,32 @@ namespace Floria.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var data = await _context.Products.Where(n => !n.IsDeleted)
-                                              .Include(n=>n.Image)
+                                              .Include(n => n.Image)
                                               .Include(n => n.Category)
+                                              .OrderByDescending(n=>n.CreatedDate)
                                               .ToListAsync();
             return View(data);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        //[Route("{controller}/{action}/{name}/{count}/{price}")]
+        public async Task<IActionResult> Create( Product product)
+        {
+
+            product.CreatedDate = DateTime.Now;
+            product.ImageId = 10;
+            product.CategoryId = 3;
+
+            await _context.Products.AddAsync(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+     
+     
     }
 }
 

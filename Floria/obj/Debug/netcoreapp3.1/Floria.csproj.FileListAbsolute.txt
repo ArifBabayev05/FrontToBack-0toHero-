@@ -155,3 +155,4 @@ C:/Users/heybe/source/repos/Floria/Floria/obj/Debug/netcoreapp3.1/Razor/Views/_V
 /Users/babayev_/Desktop/FrontToBack-Relation 2/Floria/obj/Debug/netcoreapp3.1/Razor/Views/Products/Index.cshtml.g.cs
 /Users/babayev_/Desktop/FrontToBack-Relation 2/Floria/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ProductPartial.cshtml.g.cs
 /Users/babayev_/Desktop/FrontToBack-Relation 2/Floria/obj/Debug/netcoreapp3.1/Razor/Areas/Admin/Views/Products/Index.cshtml.g.cs
+/Users/babayev_/Desktop/FrontToBack-Relation 2/Floria/obj/Debug/netcoreapp3.1/Razor/Areas/Admin/Views/Products/Create.cshtml.g.cs
