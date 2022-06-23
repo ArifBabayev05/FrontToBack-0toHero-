@@ -95,7 +95,7 @@ $(document).ready(function () {
 
     async function getPageCount() {
         let resp = await fetch("/products/getpagecount");
-        let data = Number(await resp.text);
+        let data = Number(await resp.text());
         return data;
     }
 

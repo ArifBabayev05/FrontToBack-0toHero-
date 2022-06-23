@@ -53,7 +53,7 @@
                                     @product.Category.Name
                                 </td>
                                 <td>
-                                    <a asp-area="admin" asp-action="details" asp-controller="products" class="btn btn-primary">Details</a>
+                                    <a asp-area="admin" asp-action="details" asp-controller="products" asp-route-id="@product.Id" class="btn btn-primary">Details</a>
                                     <a asp-area="admin" asp-action="update" asp-controller="products" class="btn btn-warning">Update</a>
                                     <a asp-area="admin" asp-action="delete" asp-controller="products" class="btn btn-danger">Delete</a>
                                 </td>

@@ -1,4 +1,7 @@
 ﻿@model Product
+@{
+    List<Category> categories = (List<Category>)ViewData["categories"];
+}
 
 <div class="container">
     <div class="row">
@@ -19,6 +22,27 @@
                         <div class="form-group">
                             <label asp-for="Price">Price</label>
                             <input asp-for="Price" class="form-control" placeholder="Price  ">
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ImageId">Image</label>
+                            <input asp-for="ImageId" class="form-control" placeholder="Image  ">
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Price">Price</label>
+                            <input asp-for="Price" class="form-control" placeholder="Price  ">
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="CategoryId">Large select</label>
+                            <select asp-for="CategoryId" class="form-control form-control-lg" id="">
+                                @foreach (var category in categories)
+                                {
+                                    <option value="@category.Id">@category.Name</option>
+                                }
+
+                            </select>
                         </div>
 
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
